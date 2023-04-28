@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>OOP in Java</title>
+	<script src="./Js/OOP.js"></script>
+	<link rel="stylesheet" href="./Style/OOP.css">
+</head>
+<body style="background-color: #015761; margin: 0%;">
+	<div class="navBar">
+		<t id="main"><a href="Index.html">Pouya Karimi</a></t>
+		<t class="nav"><a href="Projects.html">Experience</a></t>
+		<t class="nav"><a href="Bibly.html">Bibliography</a></t>
+		<div class="dropDown">
+			<button class="dropBtn">Lessons</button>
+			<div class="dropDown-content">
+				<a href="OOP.html">OOP</a>
+				<br>
+				<a href="Abstract.html">Interface</a>
+				<br>
+				<a href="Arrays.html">Arrays</a>
+				<br>
+				<a href="ArrayList.html">Arraylists</a>
+				<br>
+				<a href="Sort.html">Search & Sort</a>
+				<br>
+				<a href="Recursion.html">Recursions</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">Java is an OOP language, standing for Object Oriented Programming. Just like how a real life object has properties and can do things, such as a dog having a breed and being able to walk, Java objects work in a similar fashion. Objects in programming have their own <b class="keyWords">identity</b> (address in memory), <b class="keyWords">attributes</b> (instance variables), and <b class="keyWords">behaviours</b> (methods). In Java, objects are created from <b class="keyWords">classes</b>, which act as a blueprint used in order to create objects, known as <b class="keyWords">instances of the class</b>. The same way cooking recipes are used to create various meals, classes are used to create unique objects. Objects are created using constructors, which as their name suggests, construct an object. This special creation method can be called from outside of the parent class or inside and is used alongside the <b class="keyWords">new</b> operator. Constructor methods have the same name as the class, and often take <b class="keyWords">parameters</b> to be able to make each object special. For instance, a constructor for a dog class may take in the name, breed, and age of the dog to make it unique. Classes may have multiple constructors, which each take in different sets of parameters, which customize objects in different ways. Refer to the code below for further understanding.</p>
+	</div>
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy1()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">class Dog{
+    public String name;
+	public Dog(){ //Default Constructor
+        name = "Steve";
+    }
+	public Dog(String dogName){
+        name = dogName;
+    }
+    public void bark(){
+        System.out.println(name + " said: WOOF.");
+    }
+}
+class Main{
+    public static void main(String[] args) {
+        Dog husky = new Dog("Carlo"); //Creating an instance
+        husky.bark();
+    }
+}</pre>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">As mentioned previously, all objects have attributes and behaviours, which are variables and methods in the code. The difference between values of instance variables is what sets different instances of the same class apart and makes each of them unique. Methods and variables in OOP have access modifiers, which change the way they can be used in a program. The first access modifier is <t class=codeWords>default</t>. When a method/instance variable is not given a specific access modifier, it is given the default one. With a <t class=codeWords>default</t> access modifier, methods/variables are accessible <b class="keyWords">only</b> within the same package or class. A similar modifier is the <t class=codeWords>protected</t> modifier, which gives access to all programs within the same package and class, as well as <b class="keyWords">subclasses</b> which may fall outside of the parent class’s package (more on inheritance later). The third access modifier is the <t class=codeWords>public</t> modifier, which works in similar fashion as the first two. With a <t class=codeWords>public</t> modifier, information is accessible within the same package, an outside package, or the same program, it is the <b class="keyWords">most accessible modifier</b>. The last modifier is <t class=codeWords>private</t>, which is the opposite to public. Private methods and variables are only accessible within the class that they were declared in, and are even <b class="keyWords">hidden</b> from <b class="keyWords">subclasses</b>, and is the <b class="keyWords">least accessible modifier</b>. Refer to the image below to better understand access modifiers. Similar to access modifiers, methods and variables in java can be declared as static. When they are static, methods and variables now <b class="keyWords">belong to the class</b> as a whole, rather than belonging to each instance. While other methods and variables exist only when objects are created, static methods can be called before an object of the class is created.</p>
+		<img class="accessImage" src="./Images/AccessModifiers.png" width="50%" height="50%">
+	</div>
+	<div>
+		<p class="firstPar">
+			One of the main concepts of object oriented programming in Java is inheritance. Inheritance allows classes to inherit attributes and methods from another class using the <t class="codeWords">extends</t> keyword. The class who is inheriting is called the <b class="keyWords">child class</b>, and the other is called the <b class="keyWords">parent class</b>. By doing this, the child class has access to all of the attributes and methods of the parent class. The subclass can then add its own methods and attributes. For example, a class Student can be the subclass of the Human class. This is because a student has all of the attributes and actions as a human, plus even more. Inheritance supports the concept of reusability, which gets programmers to reuse code that has already been written to make programs more efficient and less time consuming. To call the <b class="keyWords">constructor</b> for a parent class, the keyword <t class="codeWords">super</t> is called inside of the subclass. This allows the subclass object to set all of the attributes that it is inheriting first, and then add its own unique attributes. Similarly, the keyword this can be used to access attributes and methods which have been inherited. Inheritance allows developers to create complex class hierarchies with shared functionality and unique features and makes programs more reusable and flexible. Methods can be over-written by child classes, in which the concept of polymorphism comes into play (more on that later). Refer to the code example below to learn more about inhertience. 
+		</p>
+	</div>
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy2()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">class Dog{ 
+    public String name;
+    public Dog(){ //Default Constructor
+        name = "Steve";
+    }
+    public Dog(String dogName){
+        name = dogName;
+    }
+    public void bark(){
+        System.out.println(name + " said: WOOF.");
+    }
+}
+class Poodle extends Dog{
+	public Poodle(String poodleName){
+        super(poodleName);
+    }
+    public void bark(){
+        System.out.println(this.name + " the Doodle said: WOOF");
+    }
+}
+class Main{
+    public static void main(String[] args) {
+        Dog husky = new Dog("Carlo"); //Creating an instance
+        husky.bark();
+        Poodle poodle = new Poodle("Golden");
+        poodle.bark();
+    }
+}</pre>
+		</div>
+	</div>
+
+	<div>
+		<p class="firstPar">
+			When working with inheritance in Java, objects of a subclass may be <b class="keyWords">assigned</b> to variables which have the type of their parent class. When this happens, the object now only has access to methods which are inherited from the parent, and not those which were added by the child. In order for a child to have access to its own methods again, it <b class="keyWords">must</b> first be <b class="keyWords">downcasted</b>. Downcasting works in the exact same way is it does for number when working with objects. See example below.
+		</p>
+	</div>
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy3()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">public class Animal {
+    public String name;
+    public Animal(){
+        name = "Animal";
+    }
+    void makeSound(){
+        System.out.println("What do I say?");
+    }
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.goOnWalk(); //Causes error
+        ((Dog) dog).goOnWalk(); //Does not cause error
+    }
+}
+class Dog extends Animal{
+    public Dog(){
+        super();
+    }
+    void makeSound(){
+        System.out.println("WOOF WOOF");
+    }
+    void goOnWalk(){
+        System.out.println("YIPPEE! I'm going on a walk!");
+    }
+}</pre>
+		</div>
+	</div>
+	
+	<div>
+		<p class="firstPar">
+			It is important to remember that while children objects can be assigned to parent identifiers, objects of a parent class cannot be assigned to an identifier of the child class. But what if the child was <b class="keyWords">not</b> downcasted, and tried to access a method which exists in the parent class but was overridden by the child? Consider the class hierarchy consisting of a parent class Animal and its two subclasses, Dog and Cat. If the Animal class has a method called <b class="codeWords">makeSound()</b>, which is overridden in the Dog and Cat subclasses, we can create an array of type Animal and add instances of Dog and Cat to it. What would happen if we were to call <b class="codeWords">makeSound()</b> on the different objects?
+		</p>
+	</div>
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy4()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+public class Animal {
+    public String name;
+    public Animal(){
+        name = "Animal";
+    }
+    void makeSound(){
+        System.out.println("What do I say?");
+    }
+    public static void main(String[] args) {
+        Animal[] animals = new Animal[3];
+        animals[0] = new Animal();
+        animals[1] = new Dog();
+        animals[2] = new Cat();
+        for(Animal an : animals){
+            an.makeSound();
+        }
+    }
+}
+class Dog extends Animal{
+    public Dog(){
+        super();
+    }
+    void makeSound(){
+        System.out.println("WOOF WOOF");
+    }
+}
+class Cat extends Animal{
+    public Cat(){
+        super();
+    }
+    void makeSound(){
+        System.out.println("Meow Meow");
+    }
+}    
+</pre>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">
+			This is where the concept of <b class="keyWords">polymorphism</b> comes into play. Even though all objects are classified as an Animal object, they will each correctly match to their correct method. Polymorphism is a fundamental concept in object-oriented programming (OOP) that allows objects of different classes to be treated as if they are objects of a common parent class. In Java, polymorphism can be achieved through method overloading and method overriding. Method overloading allows a class to have multiple methods with the same name, but with different parameters. This means that a method can have different behaviors depending on the type of parameters that are passed to it. Method overriding, on the other hand, is a mechanism that allows a subclass to provide its implementation of a method that is already defined in its superclass. Polymorphism ensures that the <b class="keyWords">correct</b> object is matched with its <b class="keyWords">correct</b> method. 
+		</p>
+	</div>
+	
+
+	<div class="pracBox">
+		<p class="titlePrac">
+			Practice Questions
+		</p>
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns1()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following class declerations.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+public class Vehicle{
+	private int maxPassengers;
+	public Vehicle(){
+		maxPassengers = 1;
+	}
+	public Vehicle(int x){
+		maxPassengers = x;
+	}
+	public int maxPassengers(){
+		return maxPassengers;
+	}
+}
+public class Motorcycle extends Vehicle{
+	public Motorcycle(){
+		super(2);
+	}
+}
+</pre>
+				</p>
+				<p class="regQuest">
+					Which of the following code segments will NOT cause a compilation error?
+				</p>
+				<p class="choices">
+					(A) &emsp;Motorcycle m1 = new Motorcycle(3);<br>
+					(B) &emsp;Vehicle v1 = new Motorcycle(4);<br>
+					(C) &emsp;Motorcycle m2 = new Vehicle();<br>
+					(D) &emsp;Vehicle v2 = new Motorcycle();<br>
+					(E) &emsp;Vehicle v3 = new Vehicle();<br>
+						&emsp;&emsp;&emsp;int max = v3.maxPassengers;
+				</p>
+				<p id="ans1">
+					<b class="keyWords">Answer: D.</b> Choice (A) is incorrect, because the <t class="codeF">Motorcycle</t> class does not define a constructor which takes in parameters. Option (B) is incorrect for the same reason as option (A). In case (C), while the <t class="codeF">Vehicle</t> object is created properly, it cannot be assigned to a reference of type <t class="codeF">Motorcycle</t>, since a <t class="codeF">Vehicle</t> is not a <t class="codeF">Motorcycle</t>. In option (E), the object is created properly, but the error occurs when the variable <t class="codeF">maxPassengers</t> is accessed. Since that variable is <t class="codeF">private</t>, trying to access it will cause an error. This means that option (D) is correct. 
+				</p>
+			</div>
+		</div>
+
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns2()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following two classes.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+public class Parent{
+	public void writeMe(){
+		System.out.println("object");
+	}
+}
+public class Child extends Parent{
+	public void writeMe(String s){
+		System.out.println(s);
+	}
+}
+</pre>
+				</p>
+				<p class="regQuest">
+					Which of the following would best describe the <t class="codeF">writeMe</t> method of the <t class="codeF">Child</t> class?
+				</p>
+				<p class="choices">
+					(A) &emsp;An inherited method<br>
+					(B) &emsp;An overridden method<br>
+					(C) &emsp;An overloaded method<br>
+					(D) &emsp;An interface method<br>
+					(E) &emsp;An abstract method<br>
+				</p>
+				<p id="ans2">
+					<b class="keyWords">Answer: B.</b> In both classes, the <t class="codeF">writeMe</t> method has the same signature, but performs different tasks. This means that the <t class="codeF">Child</t> class has overridden the <t class="codeF">writeMe</t> method. 
+				</p>
+			</div>
+		</div>
+		
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns3()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					An apartment rental company has asked you to write a program to store information about the apartments that it has available for rent. For each apartment, the company wants to keep track of the following information: number of rooms, whether or not the apartment has a dishwasher, and whether or not pets are allowed. Which of the following is the best design?
+				</p>
+				<p class="choices">
+					(A) &emsp;Use four unrelated classes: Apartment, Rooms, Dishwasher, and Pets<br>
+					(B) &emsp;Use one class, Apartment, which has three subclasses: Room, Dishwasher, and Pet<br>
+					(C) &emsp;Use one class, Apartment, which has three data fields: int rooms, boolean hasDishwasher, boolean allowsPets<br>
+					(D) &emsp;Use three classes--Pets, Rooms, and Dishwasher--each with a subclass Apartment<br>
+					(E) &emsp;Use four classes: Apartment, Pets, Dishwasher, and Rooms. The class Apartment contains instances of the other classes as attributes.<br>
+				</p>
+				<p id="ans3">
+					<b class="keyWords">Answer: C.</b> The best way to go about this question is to read all choices and think logically, which one would make the most sense? Since pets, dishwashers, and rooms are all apart of an apartment, it would make most sense for <t class="codeF">Apartment</t> to be a class, with attributes regarding its room size, as well as dishwasher and pet availabilty. Therefore, the correct answer is C. 
+				</p>
+		</div>
+	</div>
+</body>
+</html>

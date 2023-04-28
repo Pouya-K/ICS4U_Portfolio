@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Arrays in Java</title>
+	<script src="./Js/Arrays.js"></script>
+	<link rel="stylesheet" href="./Style/Arrays.css">
+</head>
+<body style="background-color: #015761; margin: 0%;">
+	<div class="navBar">
+		<t id="main"><a href="Index.html">Pouya Karimi</a></t>
+		<t class="nav"><a href="Projects.html">Experience</a></t>
+		<t class="nav"><a href="Bibly.html">Bibliography</a></t>
+		<div class="dropDown">
+			<button class="dropBtn">Lessons</button>
+			<div class="dropDown-content">
+				<a href="OOP.html">OOP</a>
+				<br>
+				<a href="Abstract.html">Interface</a>
+				<br>
+				<a href="Arrays.html">Arrays</a>
+				<br>
+				<a href="ArrayList.html">Arraylists</a>
+				<br>
+				<a href="Sort.html">Search & Sort</a>
+				<br>
+				<a href="Recursion.html">Recursions</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar"> As programmers, we use data structures to store information. A primitive variable is an example of a simple data structure, as it can store a single value to be retrieved later. A variable that can store a list of other variables is called a complex data structure. Arrays are example of complex data structures. An array is a collection of consecutive memory locations, which all hold values of the same data type. The whole array is given a name and is treated as one, and each specific location, called an <b class="keyWords">element</b>, is accessed using its <b class="keyWords">index</b>. Array indexes start at 0, which means the first element in the array has the index 0, and so on. The index of an array is used to access or change the element at that location in memory. The declaration of arrays are different from other data types, as they require the <b class="codeWords">new</b> keyword, and the size of the array to be created, and then populating each element. Arrays can also be created using the {} brackets, as shown below:</p>
+	</div>
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy1()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+String[] arr = {"I", "Love", "CS!"};
+
+String[] arr2 = new String[3]; 
+arr2[0] = "I";
+arr2[1] = "Love";
+arr2[2] = "CS!";</pre>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">
+			Both of the following declarations will create identical arrays. One common mistake made with arrays is regarding their length. The length of an array is declared during its initialization, and cannot be changed. It can be accessed using <i class="keyWords">arrName.</i><b class="keyWords">length</b>, similar to how the length of a string is accessed. The arrays class comes with many built-in methods, which can be found at <b class="keyWords"><a class="linkExt" href="https://www.geeksforgeeks.org/array-class-in-java/" target="_blank">this link.</a></b> Arrays can both be passed and returned by methods. One thing to keep in mind when passing arrays to a method is that they are passed as a reference. When other data types, such as integers, are passed to a method, a copy of them is created. That means if the value of the parameter is changed in the method, the original variable will remain unchanged. On the other hand, with non-primitive data types such as arrays, no copy is created when being passed to a method. This means if the values of the array are changed in the method, then the original variable is changed too. Refer to the code below and copy to see the results!
+		</p>
+		<p class="firstPar">
+			One important concept to understand when working with arrays is the concept of array bounds checking. This refers to the process of checking whether an index is within the bounds of the array before attempting to access or modify the element at that index. If the index is out of bounds, an ArrayIndexOutOfBoundsException is thrown. Finally, it's important to understand the trade-offs between using arrays and other data structures, such as lists or sets. While arrays are efficient for random access, they are less flexible than other data structures when it comes to adding or removing elements. It's important to choose the appropriate data structure for the task at hand.
+		</p>
+	</div>
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy2()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+import java.util.Arrays;
+public class ArrayTesting {
+    public static void main(String[] args) {
+        String[] arr = {"I", "Love", "CS!"};
+        System.out.println("Array before change: " + Arrays.toString(arr));
+        change(arr);
+        System.out.println("Array after change: " + Arrays.toString(arr));
+    }
+    public static void change(String[] array){
+        array[0] = "We";
+    }
+}
+</pre>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">
+			Another use of arrays comes in the form of 2-dimensional arrays, which are arrays of arrays. When declaring 2D arrays, two pairs of square brackets are required rather than one, as well as 2 different sizes, one for the larger array of arrays, and one for the smaller sub-arrays. Elements of a 2D array is accessed using two numbers, one for the row index and one for the column. For example, myArray[0][1] would access the second element in the first row of a two-dimensional array. A common mistake that occurs with 2-dimensional arrays comes with ragged arrays. Ragged arrays refer to arrays in which different sub-arrays have different lengths. As a result, many beginner programmers run into errors when traversing 2D arrays. Both 1D and 2D arrays can be traversed using a for each loop, which is a more convenient way of going through arrays. The disadvantage of a <b class="keyWords">for each loop</b> is that the index position is not kept in track, which makes it difficult to use when the position of a certain element is important to the program. Refer to the image below to understand how 2D arrays work.
+		</p>
+		<img class="accessImage" src="./Images/2DArrays.png" width="50%" height="50%">
+	</div>
+	<div class="pracBox">
+		<p class="titlePrac">
+			Practice Questions
+		</p>
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns1()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider two parallel arrays which contain the names and corresponding scores of players in a trivia game.
+				</p>
+				<p class="codeQuest">
+					String[] names = {"Rob", "Pam", "Sandy", "Kelly", "Kim", "J.P."};<br>
+					int[] scores = {2600, 2420, 1790, 2100, 3100, 3250};
+				</p>
+				<p class="regQuest">
+					Which of the following code segments correctly prints the names and scores of all the players who scored above high?
+				</p>
+<pre class="choices">
+(A) for(int element : scores)
+        if(element &gt hight)
+            System.out.println(names + " " + element);
+(B) for(int element : scores)
+    	if(element &gt = high)
+        System.out.println(names + " " + element);
+(C) for(int i = 0; i &lt scores.length; i++)
+        if(scores[i] &gt high)
+            System.out.println(names[i] + " " + scores[i]);
+(D) for(int i = 0; i &lt scores.length; i++)
+        if(scores[i] &gt= high)
+            System.out.println(names[i] + " " + scores[i]);
+(E) for(int i = 0; i &lt = scores.length; i++)
+        if(scores[i] &gt high)
+            System.out.println(names[i] + " " + scores[i]);	
+</pre>
+				<p id="ans1">
+					<b class="keyWords">Answer: C.</b> Since we need to access the index of an element, a standard for loop must be used, not a for-each loop. Only elements that are above high should be printed, so the inequality &gt must be used.
+				</p>
+			</div>
+		</div>
+
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns2()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following code segment.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+int m = // some positive integer
+int n = // some positive integer
+int[][] table = new int[m][n];
+for(int row = 0; row &lt table.length; row++)
+	for(int col = 0; col &lt table[0].length; col++)
+		if(table[row][col] &lt 0)
+			table[row][col] = -table[row][col];
+</pre>
+				</p>
+				<p class="regQuest">
+					Which of the following best describes the result of executing the code segment? 
+				</p>
+				<p class="choices">
+					(A) &emsp;Each element in the two-dimensional array table contains the value 0.<br>
+					(B) &emsp;Each element in the two-dimensional array table contains a nonnegative value.<br>
+					(C) &emsp;Each element in the two-dimensional array table contains a nonpositive value.<br>
+					(D) &emsp;Each element in the two-dimensional array table contains the opposite value from when it was initilized.<br>
+					(E) &emsp;Each element in the two-dimensional array table contains the value row - col.<br>
+				</p>
+				<p id="ans2">
+					<b class="keyWords">Answer: B.</b> This uses a nested for loop with both loop control variables starting at 0 and ending at the length of the row or column, which means each element of the 2D array is potentially accessed. It tests each element against 0. If the element is negative, it will be changed to the opposite, which is positive. After the loops are complete, each element in the table will be nonnegative.
+				</p>
+			</div>
+		</div>
+		
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns3()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following incomplete method.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+public static double findRowSum(double[][] mat, int n){
+    double sum = 0;
+    <i>// missing code</i>
+    return sum;
+}</pre>
+				</p>
+				<p class="regQuest">
+					Method <t class="codeF">findRowSum</t> is intended to return the sum of elements in parameter <t class="codeF">mat</t> that are in row <t class="codeF">n</t>, also passed as a parameter. Which of the following code segments could be used to replace <i>//missing code</i> so that <t class="codeF">findRowSum</t> will work as intended.
+				</p>
+<pre class="choices">
+(A) for(int i = 0; i &lt table.length; i++)
+		sum += mat[i][n];
+(B) for(int i = 0; i &lt table[0].length; i++)
+		sum += mat[i][n];
+(C) for(int i = 0; i &lt table.length; i++)
+		sum += mat[n][i];
+(D) for(int i = 0; i &lt table[0].length; i++)
+		sum += mat[n][i];
+(E) for(int i = 0; i &lt table[0].length; i++)
+		sum += mat[n][n];	
+</pre>
+				<p id="ans3">
+					<b class="keyWords">Answer: D.</b> Only one row needs to be summed, so a single for loop is appropriate. Since row n is the row to be summed, this value needs to remain unchanged throughout the loop. Choice D correctly accesses each element in the correct row in mat. 
+				</p>
+		</div>
+	</div>
+</body>
+</html>

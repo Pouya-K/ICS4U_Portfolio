@@ -1,0 +1,203 @@
+@font-face {
+	font-family: "Roboto-bold";
+		src: url("../Fonts/Roboto-Bold.ttf");
+}
+@font-face{
+	font-family: "Roboto-regular";
+	src: url("../Fonts/Roboto-Regular.ttf");
+}
+@font-face{
+	font-family: "Roboto-thin";
+	src: url("../Fonts/Roboto-Thin.ttf");
+}
+@font-face{
+	font-family: "Code";
+	src: url("../Fonts/FiraCode-VariableFont_wght.ttf");
+}
+#main {
+	color: #F7DC4F;
+	font-family: Roboto-bold, sans-serif;
+	padding-left: 1%;
+	margin-right: 4%;
+	font-size: 160%;
+}
+.navBar{
+	background-color: #15424a;
+	margin-top: 0%;
+	margin-left: 0%;
+	margin-right: 0%;
+	padding-bottom: 0.75%;
+	padding-top: 0.75%;
+}
+.nav {
+	color: white;
+	font-family: Roboto-regular, sans-serif;
+	font-size: 125%;
+	text-align: left;
+	margin-right: 4%;
+}
+a{
+	color: white;
+	text-decoration: none;
+	transition-duration: .3s;
+}
+a:hover{
+	color: #F7DC4F;
+}
+.dropDown{
+	position: relative;
+	display: inline-block;
+}
+.dropDown:hover .dropDown-content{
+	display: block;
+}
+.dropBtn{
+	color: white;
+	font-family: Roboto-regular, sans-serif;
+	font-size: 125%;
+	border: none;
+ 	cursor: pointer;
+	background-color: #15424a;
+ 	width: 160%;
+ 	text-align: left;
+}
+.dropBtn:hover{
+	color: #F7DC4F;
+}
+.dropDown-content{
+	display: none;
+	position: absolute;
+	width: 150%;
+	padding-left: 10%;
+	padding-bottom: 5%;
+	padding-top: 15%;
+	background-color: #15424a;
+}
+.dropDown-content a{
+	color: white;
+	font-family: Roboto-regular, sans-serif;
+	font-size: 125%;
+  	color: white;
+	text-decoration: none;
+	transition-duration: .3s;
+}
+.dropDown-content a:hover {
+	color: #F7DC4F;
+}
+.dropDown:hover .dropDown-content {
+	display: block;
+}
+
+.firstPar{
+	text-align: justify;
+	font-family: Roboto-regular, sans-serif;
+	padding-left: 10%;
+	padding-right: 10%;
+	color: white;
+	font-size: 130%;
+}
+.keyWords{
+	color: #F7DC4F;
+}
+
+.outerCode{
+	margin-left: 25%;
+	margin-right: 25%;
+	background-color: #15424a;
+	border-radius: 20px;
+}
+.copyButton{
+	text-align: right;
+	font-size: 110%;
+	background-color: #F7DC4F;
+	color: #15424a;
+	font-family: Roboto-bold, sans-serif;
+	border-color: #15424a;
+}
+.copyButton:hover{
+	cursor: pointer;
+}
+.exCode{
+	color: #befef6;
+	font-family: Code, sans-serif;
+	padding-left: 2%;
+	padding-bottom: 2%;
+}
+.exCodeWords{
+	color: #befef6;
+	font-family: Code, sans-serif;
+	padding-left: 2%;
+}
+.codeWords{
+	font-family: Code, sans-serif;
+	color: #befef6;
+}
+.linkExt{
+	color: #F7DC4F;
+}
+.accessImage{
+	padding-left: 25%;
+}
+.mergeImg{
+	padding-left: 6%;
+}
+.titlePrac{
+	color: #F7DC4F;
+	font-family: Roboto-bold, sans-serif;
+	text-align: center;
+	font-size: 160%;
+}
+
+.outQuestBox{
+	margin-left: 20%;
+	margin-right: 20%;
+	background-color: #15424a;
+	border-radius: 20px;
+}
+
+.regQuest{
+	color: white;
+	font-family: Roboto-regular, sans-serif;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+.codeQuest{
+	color: #befef6;
+	font-family: Code, sans-serif;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+#ans1{
+	color: white;
+	font-family: Roboto-regular, sans-serif;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-bottom: 2%;
+	display: none;
+}
+#ans2{
+	color: white;
+	font-family: Roboto-regular, sans-serif;
+	padding-left: 2%;
+	padding-bottom: 2%;
+	padding-right: 2%;
+	display: none;
+}
+#ans3{
+	color: white;
+	font-family: Roboto-regular, sans-serif;
+	padding-left: 2%;
+	padding-bottom: 2%;
+	padding-right: 2%;
+	display: none;
+}
+.choices{
+	color: #befef6;
+	font-family: Code, sans-serif;
+	padding-left: 2%;
+	padding-bottom: 2%;
+}
+.codeF{
+	font-family: Code, sans-serif;
+}

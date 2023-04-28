@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Abstract Classes</title>
+	<script src="./Js/Abstract.js"></script>
+	<link rel="stylesheet" href="./Style/Abstract.css">
+</head>
+<body style="background-color: #015761; margin: 0%;">
+	<div class="navBar">
+		<t id="main"><a href="Index.html">Pouya Karimi</a></t>
+		<t class="nav"><a href="Projects.html">Experience</a></t>
+		<t class="nav"><a href="Bibly.html">Bibliography</a></t>
+		<div class="dropDown">
+			<button class="dropBtn">Lessons</button>
+			<div class="dropDown-content">
+				<a href="OOP.html">OOP</a>
+				<br>
+				<a href="Abstract.html">Interface</a>
+				<br>
+				<a href="Arrays.html">Arrays</a>
+				<br>
+				<a href="ArrayList.html">Arraylists</a>
+				<br>
+				<a href="Sort.html">Search & Sort</a>
+				<br>
+				<a href="Recursion.html">Recursions</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">
+			Two essential Java concepts that are utilized to accomplish abstraction in object-oriented programming are <b class="keyWords">abstract classes</b> and <b class="keyWords">interfaces</b>. The process of isolating an object's core characteristics from its implementation specifics is known as abstraction. Without having to <b class="keyWords">specify</b> every aspect of implementation for every class, we may establish a collection of behaviours that can be shared by several classes by using abstract classes and interfaces. An abstract class is a class that can be subclassed but <b class="keyWords">cannot be instantiated</b> (formed using the <b class="codeWords">new</b> keyword). It serves as a <b class="keyWords">model</b> for developing practical subclasses. Abstract classes are typically used when we want to define a common set of behaviors for a group of related classes, but we do not want to provide a complete implementation for each class. Both abstract and non-abstract methods can be found in abstract classes. Abstract methods are declared without any implementation and must be overridden by the concrete subclasses. Non-abstract methods provide a default implementation and can be inherited by the concrete subclasses. An abstract class can also have fields, constructors, and static methods. If a class which extends an abstract class <b class="keyWords">does not override</b> and implement the abstract method(s) inherited, it <b class="keyWords">must</b> also be declared as abstract. Refer to the code below to further understand abstract classes. 
+		</p>
+	</div>
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy1()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+public abstract class Animal {
+    public String name;
+    public Animal(){
+        name = "Animal";
+    }
+    public abstract void makeSound();
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.makeSound();
+    }
+}
+class Dog extends Animal{
+    public Dog(){
+        super();
+    }
+    public void makeSound(){
+        System.out.println("WOOF WOOF");
+    }
+}	
+</pre>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">
+			Interfaces, on the other hand, are a collection of abstract methods that can be implemented by classes. An <b class="keyWords">interface</b> defines a set of behaviors that a class must implement, but it does not provide any implementation details. Interfaces are typically used when we want to define a common set of behaviors that can be shared by unrelated classes. In Java, a class can implement <b class="keyWords">multiple interfaces</b>, but can only <b class="keyWords">inherit from one class</b>, which allows us to achieve multiple inheritance. An interface can also have constant fields, but it cannot have instance fields, constructors, or non-abstract methods. Interfaces also cannot be instantiated like abstract classes, and require their implementations to define their abstract methods. Interfaces can be inherited with the <b class="codeWords">implements</b> keyword. Refer to the code below, which now make Animal an interface, not a class. 
+		</p>
+	</div>
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy2()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+interface Animal{
+    public abstract void makeSound();
+    public abstract void goOnWalk();
+}
+public class Dog implements Animal{
+    public Dog(){
+        super();
+    }
+    public void makeSound(){
+        System.out.println("WOOF WOOF");
+    }
+    public void goOnWalk(){
+        System.out.println("I am a dog and went on a walk!.");
+    }
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.makeSound();
+        dog.goOnWalk();
+    }
+}
+</pre>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">
+			Both abstract classes and interfaces provide a way to achieve <b class="keyWords">abstraction</b> in Java, but they have some differences. One key difference is that an abstract class can have instance fields, while an interface cannot. This means that an abstract class can provide some shared state for its subclasses, while an interface cannot. Another difference is that a class can implement multiple interfaces, but it can only inherit from one abstract class. This means that interfaces are more flexible than abstract classes when it comes to code reuse. Abstract classes and interfaces are two important concepts in Java that allow us to achieve abstraction and code reuse. Abstract classes are used when we want to define a common set of behaviors for a group of related classes, while interfaces are used when we want to define a common set of behaviors that can be shared by unrelated classes. Abstract classes and interfaces have some differences, such as the ability to have instance fields and the <b class="keyWords">flexibility</b> of multiple inheritance. By using abstract classes and interfaces in our Java programs, we can write more <b class="keyWords">flexible and reusable</b> code.
+		</p>
+	</div>
+	<div class="pracBox">
+		<p class="titlePrac">
+			Practice Questions
+		</p>
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns1()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following code segment.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+public class School{
+	public abstract double numberOfStudents();
+}
+</pre>
+				</p>
+				<p class="regQuest">
+					Which of the following statements is true about the School class?
+				</p>
+				<p class="choices">
+					(A) &emsp;The keyword public and abstract cannot be used together.<br>
+					(B) &emsp;The method numberOfStudents must have a body.<br>
+					(C) &emsp;You must add a return method in numberOfStudents().<br>
+					(D) &emsp;Class school must be declared as abstract.<br>
+				</p>
+				<p id="ans1">
+					<b class="keyWords">Answer: D.</b> We learned earlier that abstract classes are those that have at least 1 abstract method. We also learned that if a class has an abstract method, then it MUST be declared as abstract. Thereofore, the correct answer is D. 
+				</p>
+			</div>
+		</div>
+
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns2()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following two classes.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+abstract class Bank {
+  private abstract void withdraw(); // Line 2
+  abstract void deposit();
+  public void balance(){} //Line 4
+}
+class office extends Bank{ // Line 6
+  void deposit() { // Line 7
+    <i>/* Missing Code */</i>
+  }
+}
+</pre>
+				</p>
+				<p class="regQuest">
+					What best describes why this code does not work?
+				</p>
+				<p class="choices">
+					(A) &emsp;Compilation error in Line 1(abstract method cannot be private)<br>
+					(B) &emsp;Compilation error in Line 2(abstract class cannot have concrete method)<br>
+					(C) &emsp;Compilation error in Line 3(abstract class cannot be extended)<br>
+					(D) &emsp;Compilation error in Line 4(deposit method should have public access <br>modifier)
+				</p>
+				<p id="ans2">
+					<b class="keyWords">Answer: A.</b> In order for an abstract class to be inherited, it's abstract classes must be overridden and implemented properly. If those abstract methods are private, then they can no longer be overridden, causing a compilation error. Since all abstract methods must be declared public, the correct answer is A. 
+				</p>
+			</div>
+		</div>
+		
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns3()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					True or false, an interface cannot be instantiated but an abstract class can. 
+				</p>
+				<p class="choices">
+					(A) &emsp;True<br>
+					(B) &emsp;False<br>
+				</p>
+				<p id="ans3">
+					<b class="keyWords">Answer: B.</b> Looking back on our lessons earlier, we learned that any class/interface with abstract methods cannot be instantiated. Therefore, neither abstract classes nor interfaces can be instantiated, making the statement above false. 
+				</p>
+		</div>
+	</div>
+</body>

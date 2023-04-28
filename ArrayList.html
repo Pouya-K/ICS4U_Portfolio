@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ArrayLists</title>
+	<script src="./Js/List.js"></script>
+	<link rel="stylesheet" href="./Style/List.css">
+</head>
+<body style="background-color: #015761; margin: 0%;">
+	<div class="navBar">
+		<t id="main"><a href="Index.html">Pouya Karimi</a></t>
+		<t class="nav"><a href="Projects.html">Experience</a></t>
+		<t class="nav"><a href="Bibly.html">Bibliography</a></t>
+		<div class="dropDown">
+			<button class="dropBtn">Lessons</button>
+			<div class="dropDown-content">
+				<a href="OOP.html">OOP</a>
+				<br>
+				<a href="Abstract.html">Interface</a>
+				<br>
+				<a href="Arrays.html">Arrays</a>
+				<br>
+				<a href="ArrayList.html">Arraylists</a>
+				<br>
+				<a href="Sort.html">Search & Sort</a>
+				<br>
+				<a href="Recursion.html">Recursions</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">
+			Arraylists are another form of lists or groups of locations of memory of the same data type, similar to arrays. The major difference between arraylists and arrays is that arraylists do not have a set size, and are easily resizeable. Additionally, arraylists can only hold <b class="keyWords">objects</b> (not primitive data types), which means that it will store int variables as Integers, and double variables as Double. Although the syntax may look a little different, Integers and Doubles still work the same way in ArrayLists, due to the concept of autoboxing. Autoboxing refers to the act of java automatically converting an Integer or a Double to an int or double, variable types that we are more familiar with. Arraylists require the <b class="keyWords">java.util</b> package, which needs to be imported at the start of the program. Similar to arrays, arraylists can be passed and returned to a method, and can be used in a for each loop using the same syntax.
+		</p>
+		<p class="firstPar">
+			With the flexibility of resizable arrays, arraylists come with many more methods. The .<b class="codeWords">add()</b> method will add a value to the end of the list, and will increase the size if necessary. Another variation of the .<b class="codeWords">add()</b> method will also take an index as a parameter. In this situation, the element will be added at that index, and elements from that index onward will be shifted down 1. On the other hand, the .<b class="codeWords">set()</b> method will take both an index AND an element, and will set that index to the specified element. Thirdly, the .<b class="codeWords">remove()</b> method will take an index as a parameter, and remove the element at the index, then proceed to move all the following elements back one. The last major method in the arraylist class is the .<b class="codeWords">get()</b> method, which is used to access the element at a specific index in the arraylist. The class comes with many more methods, which can be found <a class="linkExt" href="https://www.programiz.com/java-programming/library/arraylist" target="_blank">here</a>. Look at the code below for an example of the use of ArrayList and its methods. 
+		</p>
+	</div>
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy1()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">import java.util.*;
+public class ArrayTesting {
+    public static void main(String[] args) {
+        ArrayList&ltString&gt testingArr = new ArrayList&ltString&gt(10);
+        testingArr.add("I");
+        testingArr.add("Love");
+        testingArr.add("CS!");
+        testingArr.remove(0);
+        System.out.println(testingArr.get(0) + testingArr.get(1));
+    }
+}</pre>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">
+			Another unique feature that sets ArrayLists apart from arrays is their built in printing method. When a print is called on an ArrayList, the actualy values are printed as opposed to the address in memory pointing to the data, which is what happens when one tries to print an array. A common mistake that is seen when using arraylists comes when using the .remove() method. For example, the program below is intended to remove every instance of the word “Don’t” in an arraylist of Strings, but does not work as intended. This is because the size of the arraylist is decreased every time an element is reduced. As a result, elements may be skipped over when using a for loop. Instead, a while loop should be used, with the counter only being incremented if the element at that index is not removed.
+		</p>
+	</div>
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy2()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+import java.util.*;
+public class ArrayTesting {
+    public static void main(String[] args) {
+        ArrayList&ltString&gt testing = new ArrayList&ltString&gt();
+        testing.add("I");
+        testing.add("Don't");
+        testing.add("Don't");
+        testing.add("Love");
+        testing.add("CS");
+        for(int i = 0; i&lttesting.size(); i++){
+            if(testing.get(i) == "Don't"){
+                testing.remove(i);
+            }
+        }
+        System.out.println(testing);
+    }
+}	
+</pre>
+		</div>
+	</div>
+
+
+	<div class="pracBox">
+		<p class="titlePrac">
+			Practice Questions
+		</p>
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns1()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following code segment.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+int total = 3;
+ArrayList&ltInteger&gt integerList = new ArrayList&ltInteger&gt();
+for (int k = 7; k &lt 11; k++){
+    integerList.add(k + 3);
+}
+for(Integer i : integerList){
+    total += i;
+    if(total % 2 == 1)
+    {
+        total -= 1;
+    }
+}
+System.out.println(total);
+</pre>
+				</p>
+				<p class="regQuest">
+					What is printed as a result of executing the code segment. 
+				</p>
+				<p class="choices">
+					(A) &emsp;34<br>
+					(B) &emsp;37<br>
+					(C) &emsp;46<br>
+					(D) &emsp;47<br>
+					(E) &emsp;49<br>
+				</p>
+				<p id="ans1">
+					<b class="keyWords">Answer: C.</b> After the initial loop, the content of ArrayList are: <t class="codeF">[10,11,12,13]</t>. Let's consider what the for-each loop is doing. For each Integer in integerList, it will be added to total (which starts at 3), and if total is odd <t class="codeF">(total % 2 == 1)</t>, subtract one from it. Executing the for-each loop gives us 46 as our final answer. 
+				</p>
+			</div>
+		</div>
+
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns2()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following code segment.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">ArrayList&ltString&gt subjects = new ArrayList&ltString&gt();
+subjects.add("French");
+subjects.add("History");
+subjects.set(1, "English");
+subjects.add("Art");
+subjects.remove(1); //Line 6
+subjects.set(2, "Math");
+subjects.add("Biology");
+System.out.println(subjects);</pre>
+				</p>
+				<p class="regQuest">
+					What is printed as a result of executing the code segment?
+				</p>
+				<p class="choices">
+					(A) &emsp;[French, English, Math, Biology]<br>
+					(B) &emsp;[French, Art, Biology]<br>
+					(C) &emsp;[French, English, Art, Math, Biology]<br>
+					(D) &emsp;[French, Math, Biology]<br>
+					(E) &emsp;IndexOutOfBoundsException<br>
+				</p>
+				<p id="ans2">
+					<b class="keyWords">Answer: E.</b> By going through each call to the ArrayList methods, we reach the conclusion that subjects will have the contents <t class=codeF>[French, Art]</t> after line 6 is compiled. When line 7 is called, trying to set index 2 to a value, an error will occur since index 2 does not yet exist in subjects. Therefore, trying it will generate an <t class="codeF">IndexOutOfBoundsException</t>.
+				</p>
+			</div>
+		</div>
+		
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns3()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Assume that cities is an ArrayList&ltString&gt that has been correctly constructed and populated with the following items.
+				</p>
+				<p class="codeQuest">
+					["Oakland", "Chicago", "Milwaukee", "Seattle", "Denver", "Boston"]
+				</p>
+				<p class="regQuest">
+					Consider the following code segment. 
+				</p>
+				<p class="codeQuest">
+					cities.remove(2);<br>
+					cities.add("Detroit");<br>
+					cities.remove(4);<br>
+					cities.add("Cleveland");<br>
+				</p>
+				<p class="regQuest">
+					What items does cities contain after executing the code segment?
+				</p>
+				<p class="choices">
+					(A) &emsp;["Cleveland", "Detroit", "Oakland", "Chicago", "Seattle", "Denver", "Boston"]<br>
+					(B) &emsp;["Oakland", "Milwaukee", "Seattle", "Boston", "Detroit", "Cleveland"]<br>
+					(C) &emsp;["Oakland", "Chicago", "Seattle", "Boston", "Detroit", "Cleveland"]<br>
+					(D) &emsp;["Oakland", "Milwaukee", "Denver", "Boston", "Detroit", "Cleveland"]<br>
+					(E) &emsp;["Oakland", "Chicago", "Seattle", "Denver", "Detroit", "Cleveland"]<br>
+				</p>
+				<p id="ans3">
+					<b class="keyWords">Answer: E.</b> After removing at index 2, we will be left with <t class="codeF">["Oakland", "Chicago", "Seattle", "Denver", "Boston"]</t>. After adding <t class="codeF">"Detroit"</t>, we have <t class="codeF">["Oakland", "Chicago", "Seattle", "Denver", "Boston", "Detroit"]</t>. After the remove at index 4, we have <t class="codeF">["Oakland", "Chicago", "Seattle", "Denver", "Detroit"]</t>. Lastly, we add <t class="codeF">"Cleveland"</t>, making the final list <t class="codeF">["Oakland", "Chicago", "Seattle", "Denver", "Detroit", "Cleveland"]</t>.
+				</p>
+		</div>
+	</div>
+</body>
+</html>

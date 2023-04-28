@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Recursion</title>
+	<script src="./Js/Recursion.js"></script>
+	<link rel="stylesheet" href="./Style/Recursion.css">
+</head>
+<body style="background-color: #015761; margin: 0%;">
+	<div class="navBar">
+		<t id="main"><a href="Index.html">Pouya Karimi</a></t>
+		<t class="nav"><a href="Projects.html">Experience</a></t>
+		<t class="nav"><a href="Bibly.html">Bibliography</a></t>
+		<div class="dropDown">
+			<button class="dropBtn">Lessons</button>
+			<div class="dropDown-content">
+				<a href="OOP.html">OOP</a>
+				<br>
+				<a href="Abstract.html">Interface</a>
+				<br>
+				<a href="Arrays.html">Arrays</a>
+				<br>
+				<a href="ArrayList.html">Arraylists</a>
+				<br>
+				<a href="Sort.html">Search & Sort</a>
+				<br>
+				<a href="Recursion.html">Recursions</a>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<p class="firstPar">
+			Recursion is a programming method that is frequently employed and is especially beneficial for solving issues involving repeating patterns. Beginners may find it difficult to grasp the idea of recursion, but if they can, it can greatly simplify a problem's solution. Utilizing methods that call themselves repeatedly until a base case is achieved, recursion is implemented. The <b class="keyWords">base case</b> is one of the most basic ideas in recursion. When the recursion should end, this condition decides when it should. A <b class="keyWords"> stack overflow</b> fault would result from the recursive function repeatedly calling itself in the absence of a base case. Determining the base case and making sure it is clear and unambiguous are therefore crucial. The base case in Java is typically a straightforward condition that verifies whether the issue has been resolved or not. The <b class="keyWords">recursive call</b> is another crucial idea in recursion. At this point in the function, a new set of <b class="keyWords">parameters</b> are passed in when the function calls itself. The function can operate on a more manageable subproblem thanks to the adjusted arguments. The function keeps calling itself until it reaches the base case, at which point it stops and returns the answer. The <b class="keyWords">call stack</b> grows by one layer with each recursive call, and as each recursive call is resolved, the function moves back up the call stack. Take a look at the recursive method below, which calculates the factorial of a given number. 
+		</p>
+	</div>
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy1()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+public class Factorial {
+    public static int fact(int n){
+        if(n <= 1) return 1;
+        return n * fact(n-1);
+    }
+    public static void main(String[] args) {
+        int num = 5; System.out.println("The factorial of " + num + " is " + fact(num));
+    }
+}	
+</pre>
+		</div>
+	</div>
+
+	<div>
+		<p class="firstPar">
+			When utilized properly, recursion can be a <b class="keyWords">powerful tool</b>, but if improperly implemented, it can also cause performance problems. For instance, too many recursive calls might quickly use up memory, which can result in a <b class="keyWords">stack overflow problem</b>. Optimizing the recursion is crucial to preventing this by reducing the amount of recursive calls and using tail recursion where appropriate. Recursion is a powerful tool that Java programmers can use to tackle a variety of issues, including dynamic programming, tree traversal, and search and sorting algorithms. Recursion can be used to build algorithms like <b class="keyWords">binary search and merge sort</b>, as well as to navigate binary trees and calculate the Fibonacci sequence. Recursion is a fundamental idea in programming and a potent tool for problem-solving, to sum up. By dividing difficult problems into smaller subproblems, it offers a simple method for solving them. To prevent performance problems, its implementation should be <b class="keyWords">optimized</b> and it necessitates a comprehensive grasp of the base case. Recursion is a concept that is frequently utilized in Java algorithms and data structures, so becoming proficient with it can significantly improve one's programming abilities. Refer to the recursive code below which implements the merge sort algorithm in java. 
+		</p>
+	</div>
+
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy2()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+import java.util.*;
+public class MergeSort {
+    public static void main(String[] args){
+        int[] userArray = {1,5,3,4,2,6};
+        System.out.println("Array before sorting " + Arrays.toString(userArray));
+        System.out.println("Array after sorting " + Arrays.toString(mergeSort(userArray)));
+    }
+    public static int[] mergeSort(int[] arr){
+        if(arr.length==1) return arr;
+        //using built in array class methods to split an array into 2
+        int[] arr1= Arrays.copyOfRange(arr, 0, arr.length/2);
+        int[] arr2 = Arrays.copyOfRange(arr, arr.length/2, arr.length);
+        arr1 = mergeSort(arr1);
+        arr2 = mergeSort(arr2);
+        return merge(arr1, arr2);
+    }
+    public static int[] merge(int[] arrA, int[] arrB){
+        //Merging two sorted arrays together
+        int[] mergedArr = new int[arrA.length+ arrB.length];
+        int arrAIndex = 0, arrBIndex = 0;
+        for(int i = 0; i< mergedArr.length; i++){
+            if(arrA[arrAIndex]&ltarrB[arrBIndex]){
+                mergedArr[i] = arrA[arrAIndex];
+                arrAIndex++;
+            }
+            else{
+                mergedArr[i] = arrB[arrBIndex];
+                arrBIndex++;
+            }
+            //One array is larger than the other (all remaining elements are in order)
+            if(arrAIndex==arrA.length){
+                while(arrBIndex&ltarrB.length){
+                    i++;
+                    mergedArr[i] = arrB[arrBIndex];
+                    arrBIndex++;
+                }
+                break;
+            }
+            if(arrBIndex==arrB.length){
+                while(arrAIndex&ltarrA.length){
+                    i++;
+                    mergedArr[i] = arrA[arrAIndex];
+                    arrAIndex++;
+                }
+                break;
+            }
+        }
+        return mergedArr;
+    }
+}	
+</pre>
+		</div>
+	</div>
+
+
+	<div class="pracBox">
+		<p class="titlePrac">
+			Practice Questions
+		</p>
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns1()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following method.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+public int enigma(int n){
+	if(n &lt 3){
+		return 2;
+	}
+	if(n &lt 5){
+		return 2 + enigma(n - 1);
+	}
+	return 3 + enigma(n - 2);
+}</pre>
+				</p>
+				<p class="regQuest">
+					What value is returned when <t class="codeF"> enigma(9)</t> is called?
+				</p>
+				<p class="choices">
+					(A) &emsp;7<br>
+					(B) &emsp;10<br>
+					(C) &emsp;13<br>
+					(D) &emsp;15<br>
+					(E) &emsp;16<br>
+				</p>
+				<p id="ans1">
+					<b class="keyWords">Answer: C.</b> Let's trace the recursive call!<br>
+					enigma(9) = 3 + enigma(7) = 3 + 10 = <b class="keyWords">13</b><br>
+					enigma(7) = 3 + enigma(5) = 3 + 7 = 10<br>
+					enigma(5) = 3 + enigma(3) = 3 + 4 = 7<br>
+					enigma(3) = 2 + enigma(2) = 2 + 2 = 4<br>
+					enigma(2) = 2...Time to go back up!<br>
+				</p>
+			</div>
+		</div>
+
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns2()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following recursive method.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+public int function(int x, int y){
+	if(x &lt = y){
+		return x + y;
+	}
+	return function(x - y, y + 1) + 2;
+}</pre>
+				</p>
+				<p class="regQuest">
+					What is returned when <t class="codeF">function(24, 3)</t> is called?
+				</p>
+				<p class="choices">
+					(A) &emsp;13<br>
+					(B) &emsp;21<br>
+					(C) &emsp;25<br>
+					(D) &emsp;27<br>
+					(E) &emsp;Nothing is returned. Infinite recursion causes a stack overflow error.<br>
+				</p>
+				<p id="ans2">
+					<b class="keyWords">Answer: B.</b> Let's trace the recursive call.<br>
+					function(24, 3) = function(21, 4) + 2 = 19 + 2 = <b class="keyWords">21</b><br>
+					function(21, 4) = function(17, 5) + 2 = 17 + 2 = 19 <br>
+					function(17, 5) = function(12, 6) + 2 = 15 + 2 = 17 <br>
+					function(12, 6) = function(6, 7) + 2 = 13 + 2 = 15 <br>
+					function(6, 7) = 6 + 7 = 13 (base case) <br>
+				</p>
+			</div>
+		</div>
+		
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns3()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following recursive methods. 
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+public int factors(int number){
+	return factors(number, number - 1, 0);
+}
+public int factors(int number, int check, 0);{
+	if(number % check == 0){
+		count++;
+	}
+	check--;
+	if(check == 1){
+		return count;
+	}
+	return factors(number, check, count);
+}</pre>
+				</p>
+				<p class="regQuest">
+					What value is returned when <t class="codeF">factors(10)</t> is called?
+				</p>				
+				<p class="choices">
+					(A) &emsp;0<br>
+					(B) &emsp;1<br>
+					(C) &emsp;2<br>
+					(D) &emsp;3<br>
+					(E) &emsp;4<br>
+				</p>
+				<p id="ans3">
+					<b class="keyWords">Answer: C.</b> Correct. Instead of tracing the code, let's instead reason out what the method is doing. Notice that factors is an overloaded method. Our first call has one <t class="codeF">int</t> parameter, but the remaining calls have three. Our first call, <t class="codeF">factors(10)</t>, will result in the call <t class="codeF">factors(10, 9, 0)</t>. Looking at the factors method with three parameters, we can see that each time through, we subtract one from <t class="codeF">check</t>, and the base is <t class="codeF">check == 1</t>. We start with <t class="codeF">check</t> = 9 and call the method eight more times before returning count. Count begind at 0 and will be incremented when the number % check is equal to 0. Since <t class="codeF">number</t> is 10, and <t class="codeF">check</t> will equal all the numbers between 1 and 9, that will happen twice, since 10 has 2 factors between 1 and 9. Therefore, when the base case is reached, the method will return a value of 2. 
+				</p>
+		</div>
+	</div>
+</body>
+</html>

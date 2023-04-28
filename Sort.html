@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Search and Sort</title>
+	<script src="./Js/Sort.js"></script>
+	<link rel="stylesheet" href="./Style/Sort.css">
+</head>
+<body style="background-color: #015761; margin: 0%;">
+	<div class="navBar">
+		<t id="main"><a href="Index.html">Pouya Karimi</a></t>
+		<t class="nav"><a href="Projects.html">Experience</a></t>
+		<t class="nav"><a href="Bibly.html">Bibliography</a></t>
+		<div class="dropDown">
+			<button class="dropBtn">Lessons</button>
+			<div class="dropDown-content">
+				<a href="OOP.html">OOP</a>
+				<br>
+				<a href="Abstract.html">Interface</a>
+				<br>
+				<a href="Arrays.html">Arrays</a>
+				<br>
+				<a href="ArrayList.html">Arraylists</a>
+				<br>
+				<a href="Sort.html">Search & Sort</a>
+				<br>
+				<a href="Recursion.html">Recursions</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">
+			Searching and sorting refers to different <b class="keyWords">algorithms</b> that can be used to search for a specific element or to sort a given array/arraylist. Two of the most common search algorithms are <b class="keyWords">sequential</b> and <b class="keyWords">binary</b> search. </p>
+		<p class="firstPar">
+			Sequential search, also known as linear search, traverses each element in a given list and compares it to the <b class="keyWords">target value</b>; it is the most simple form of searching. Sequential search can be very quick or very slow. The worst case (target element does not exist in array) has a time complexity of <b class="keyWords">O(<i>n</i>)</b>, where <i>n</i> is the length of the list, since it takes <i>n</i> comparisons to ensure that the target element is not in the array. Therefore, the time complexity is known as <b class="keyWords">O(<i>n</i>)</b>, as every element is compared once. The Java code for sequential search can be found below. 
+		</p>
+	</div>
+
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy1()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+public class Search {
+    public static int search(int[] arr, int target){
+        for(int i = 0; i&ltarr.length; i++){
+            if(arr[i] == target){
+                return target;
+            }
+        }
+        return -1;
+    }
+    public static void main(String[] args) {
+        int[] arr = {10,5,8,9,2,3,4};
+        System.out.println("The target is found at index " + search(arr, 5));
+    }
+}	
+</pre>
+		</div>
+	</div>
+
+	<div>
+		<p class="firstPar">
+			Binary search is the second common method of searching in Java. The difference between binary search and sequential sort is that binary search requires a <b class="keyWords">sorted list</b> to work. Binary search repeatedly divides the array into halves, and checks which half the target lies in. Since the array is sorted, the target can be compared to the middle element to know which half it lies in. This is done continuously until the target is the middle element, or there are 2 elements left. This is a faster algorithm compared to linear search, with a time complexity of <b class="keyWords">O(Log <i>n</i>)</b>, where <i>n</i> is the number of elements in an array. The Java code for binary search can be found below. 
+		</p>
+	</div>
+
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy2()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+public class Search {
+    public static int binarySearch(int[] arr, int target){
+        int left = 0;
+        int right = arr.length - 1;
+        while (left &lt = right) {
+            int middle = left + (right - left) / 2;
+            if (arr[middle] == target) {
+                return middle;
+            }
+            if (arr[middle] &lt target) {
+                left = middle + 1;
+            }
+            else {
+                right = middle - 1;
+            }
+        }
+        return -1;
+    }
+    public static void main(String[] args){
+        int[] arr = {2, 3, 4, 10, 40};
+        System.out.println("Element is at index " + binarySearch(arr, 10));
+    }
+}	
+</pre>
+		</div>
+	</div>
+
+	<div>
+		<p class="firstPar">
+			While there are hundreds of different sorting algorithms, some are used more frequently than others. The 3 major <b class="keyWords">sorting algorithms</b> are selection sort, insertion sort, and merge sort. Starting off with <b class="keyWords">insertion sort</b>, which is an algorithm very similar to the natural way that people sort a list of numbers if they were given numbers one at a time. The person could easily sort the numbers by inserting the card where it belonged in the list as soon as the card was received. Insertion sort is considered to be a relatively simple sort and works best on very small data sets. Consider the image below representing the insertion sort algorithm. 
+		</p>
+		<img class="accessImage" src="./Images/insertion.png" width="50%" height="50%">
+		<p class="firstPar">
+			Insertion sort <b class="keyWords">always</b> begins on the second element at index 1. The starting position is placed into a temporary variable. That value is then compared to the position behind it, and if it is smaller, then our temporary is now moved one position back, and the value that was previously there is moved one forward. This process is repeated for every index of the array, until eventually the array will be completely sorted. The best case, worst case, and average case of insertion sort all have a time complexity of <b class="keyWords">O(<i>n</i> ^ 2)</b>, where <i>n</i> is the number of elements in the array. This is because no matter what, insertion sort does <b class="keyWords"><i>n</i> ^ 2</b> number of passes through a list, no matter what its starting layout was. Refer to the implementation of insertion sort in Java below. 
+		</p>
+	</div>
+
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy3()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+import java.util.*;
+public class Sort {
+    public static void sort(int arr[]){
+        int n = arr.length;
+        for (int i = 1; i &lt n; ++i) {
+            int temp = arr[i];
+            int j = i - 1;
+            while (j &gt = 0 && arr[j] &gt temp) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = temp;
+        }
+    }
+    public static void main(String[] args) {
+        int[] arr = {120, 34, 2, 129, 4, 230};
+        System.out.println("Unsorted array: " + Arrays.toString(arr));
+        sort(arr);
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+}	
+</pre>
+		</div>
+	</div>
+	<div>
+		<p class="firstPar">
+			The selection sort algorithm forms a sorted list by repeatedly finding and selecting the smallest item in a list and putting it in its proper place. To sort a list of numbers from smallest to largest using selection sort, the entire list is searched for the <b class="keyWords">smallest item</b>, selected and <b class = "keyWords">swapped</b> with the first item in the list. Next, the algorithm searches for the smallest item in the remaining list (not including the first item), and swaps it with the item in the second position. This process is repeated until the last item in the list becomes the largest item in the list and the array is left sorted. Refer to the code below for a Java representation of selection sort. Selection sort also has a time complexity of <b class="keyWords">O(<i>n</i> ^ 2)</b> in all of its cases. Similar to insertion sort, the array will be traversed <i>n</i> ^ 2 times, no matter what it's starting position looks like. 
+		</p>
+	</div>
+
+	<div class="outerCode">
+		<div class="titleOfCode">
+			<button onclick="codeCopy4()" class="copyButton">Copy</button>
+		</div>
+		<div class="exCode">
+<pre class="exCodeWords">
+import java.util.*;
+public class Sort {
+    public static void sort(int arr[]){
+        for(int i = 0; i&ltarr.length-1; i++){
+            int index = i;
+            for(int j = i + 1; j < arr.length; j++){
+                if(arr[j] < arr[index]){
+                    index = j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = arr[index];
+            arr[index] = arr[i];
+        }
+    }
+    public static void main(String[] args) {
+        int[] arr = {120, 34, 2, 129, 4, 230};
+        System.out.println("Unsorted array: " + Arrays.toString(arr));
+        sort(arr);
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+}	
+</pre>
+		</div>
+	</div>
+
+	<div>
+		<p class="firstPar">
+			Last but not least is the merge sort algorithm. The merge sort is called a <b class="keyWords">“divide and conquer”</b> algorithm and uses <b class="keyWords">recursion</b>. The merge sort algorithm repeatedly divides the numbers into two groups until it can't do it anymore. Next, the algorithm merges the smaller groups together and sorts them as it joins them. This process is repeated until all the groups form one, large sorted group. Merge sort is a relatively <b class="keyWords">fast</b> sort and is much more efficient on larger datasets than insertion sort or selection sort. Merge sort has a time complexity of <b class="keyWords"> O(<i>n</i> Log <i>n</i>)</b>, where n is the number of elements in the array, as it's best, worst, and avergae case. Although it may seem like merge sort is the best of these three sorts, its downside is that it requires more memory to execute. A table below represents the different time complexeties of different sorting algorithms. As you can see, while selection sort may be one of the easier sorts to implement, it is not as efficient as other options. Different sorts can be used during different circumstances and situations, and falls mainly to the decision of the programmer on which option to choose. Similar to insertion sort, in merge sort the array is traversed the same number of times no matter what it's starting orientation is. Refer to the image and video demonstration of merge sort down below (code can be found under recursions lesson).
+		</p>
+		<img class="mergeImg" src="./Images/merge.png" width="40%" height="40%">
+		<video class="mergeImg" width="40%", height="40%" controls>
+			<source src="./Images/mergeSort.mp4" type="video/mp4">
+		</video>
+	</div>
+
+	<div class="pracBox">
+		<p class="titlePrac">
+			Practice Questions
+		</p>
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns1()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following code segment that implements the Insertion Sort algorithm.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+public void insertionSort(int[] arr){
+    for(int i = 1; i &lt arr.length; i++){
+        int key = arr[i];
+        int j = i - 1;
+        while(j gt = 0 && <i>/* condition */</i>){
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}	
+</pre>
+				</p>
+				<p class="regQuest">
+					Which of the following can be used to replace <i class="codeF">/* condition */</i> so that insertionSort will work as intended?
+				</p>
+				<p class="choices">
+					(A) &emsp;arr[i] &gt key<br>
+					(B) &emsp;arr[j] &gt key<br>
+					(C) &emsp;arr[i + 1] &gt key<br>
+					(D) &emsp;arr[j + 1] &gt key<br>
+					(E) &emsp;arr[i-1] &gt key<br>
+				</p>
+				<p id="ans1">
+					<b class="keyWords">Answer: B.</b> Recalling the algorithm for insertion sort, the while loop is intended to keep going until we find an element that is smaller than the element to be sorted, or keep going as long as the element we are looking at is larger than our key. Therefore, the loop should continue until arr[j] &gt key.
+				</p>
+			</div>
+		</div>
+
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns2()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following correct implementation of the selection sort algorithm.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+public static void selectionSort(int[] elements){
+    for (int j = 0; j &lt elements.length - 1; j++){
+        int minIndex = j;
+        for (int k = j + 1; k &lt elements.length; k++){
+            if (elements[k] < elements[minIndex]){
+                minIndex = k;
+            }
+        }
+        if (j ! = minIndex){
+            int temp = elements[j];
+            elements[j] = elements[minIndex];
+            elements[minIndex] = temp;   // line 19
+        }
+    }
+}	
+</pre>
+				</p>
+				<p class="regQuest">
+					The following declaration and method call appear in a method in the same class as selectionSort.
+				</p>
+				<p class="codeQuest">
+					int[] arr = {30, 40, 10, 50, 20};<br>
+					selectionSort(arr);
+				</p>
+				<p class="regQuest">
+					How many times is the statement <t class="codeF">elements[minIndex] = temp;</t> in line 19 of the method executed as a result of the call to selectionSort?
+				</p>
+				<p class="choices">
+					(A) &emsp;1<br>
+					(B) &emsp;2<br>
+					(C) &emsp;3<br>
+					(D) &emsp;4<br>
+					(E) &emsp;5<br>
+				</p>
+				<p id="ans2">
+					<b class="keyWords">Answer: C.</b> The statement in line 19 executes each time a value is swapped into the correct position in the array. For the given array, the values 30 and 10 are swapped. Then the values 40 and 20 are swapped. Then, since 30 is already in the correct position, no swap occurs. Lastly, 50 and 40 are swapped. Therefore, the statement on line 19 is called 3 times.
+				</p>
+			</div>
+		</div>
+		
+		<div class="outQuestBox">
+			<div class="titleOfCode">
+				<button onclick="revealAns3()" class="copyButton">Reveal Answer</button>
+			</div>
+			<div class="questBox">
+				<p class="regQuest">
+					Consider the following mergeSortHelper method, which is part of an algorithm to recursively sort an array of integers.
+				</p>
+				<p class="codeQuest">
+<pre class="codeQuest">
+public static void mergeSortHelper(int[] arr, int from, int to, int[] temp){
+    if (from &lt to){
+        int middle = (from + to) / 2;
+        mergeSortHelper(arr, from, middle, temp);
+        mergeSortHelper(arr, middle + 1, to, temp);
+        merge(arr, from, middle, to, temp);
+    }
+}	
+</pre>				
+				</p>
+				<p class="regQuest">
+					The merge method is used to merge two halves of an array (<t class="codeF">arr[from]</t> through <t class="codeF">arr[middle]</t>, inclusive, and <t class="codeF">arr[middle + 1]</t> through <t class="codeF">arr[to]</t>, inclusive) when each half has already been sorted into ascending order. For example, consider the array <t class="codeF">arr1</t>, which contains the values <t class="codeF">{1, 3, 5, 7, 2, 4, 6, 8}</t>. The lower half of <t class="codeF">arr1</t> is sorted in ascending order (elements <t class="codeF">arr1[0]</t> through <t class="codeF">arr1[3]</t>, or <t class="codeF">{1, 3, 5, 7}</t>), as is the upper half of <t class="codeF">arr1</t> (elements <t class="codeF">arr1[4]</t> through <t class="codeF">arr1[7]</t>, or <t class="codeF">{2, 4, 6, 8}</t>). The array will contain the values <t class="codeF">{1, 2, 3, 4, 5, 6, 7, 8}</t> after the method call <t class="codeF">merge(arr1, 0, 3, 7, temp)</t>. The array <t class="codeF">temp</t> is a temporary array declared in the calling program.
+				</p>
+				<p class="regQuest">
+					Consider the following code segment, which appears in a method in the same class as <t class="codeF">mergeSortHelper</t> and <t class="codeF">merge</t>.
+				</p>
+				<p class="codeQuest">
+					int[] arr1 = {9, 1, 3, 5, 4};<br>
+					int[] temp = new int[arr1.length];<br>
+					mergeSortHelper(arr1, 0, arr1.length - 1, temp);<br>
+				</p>
+				<p class="regQuest">
+					Which of the following represents the arrays merged the first time the merge method is executed as a result of the code segment above?
+				</p>				
+				<p class="choices">
+					(A) &emsp;{9} and {1} are merged to form {1, 9}.<br>
+					(B) &emsp;{1, 9} and {3} are merged to form {1, 3, 9}.<br>
+					(C) &emsp;{1, 9} and {5, 4} are merged to form {1, 4, 5, 9}.<br>
+					(D) &emsp;{1, 3, 9} and {5} are merged to form {1, 3, 5, 9}.<br>
+					(E) &emsp;{1, 3, 9} and {4, 5} are merged to form {1, 3, 4, 5, 9}.<br>
+				</p>
+				<p id="ans3">
+					<b class="keyWords">Answer: A.</b> Correct. The merge method appears after both recursive calls in the mergeSortHelper method, so it is not called until the condition from < to evaluates to false and there are no more recursive calls to execute. This occurs when the two parts of the array to merge each contain one element. The original array is split into {9, 1, 3} and {5, 4}. The array segment {9, 1, 3} is split into {9, 1} and {3}. The array segment {9, 1} is split into {9} and {1} and these two array segments are merged to form {1, 9}.
+				</p>
+		</div>
+	</div>
+
+</body>
+</html>
