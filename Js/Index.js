@@ -1,5 +1,5 @@
 function emailCopy(){
-			let codeText = "pouya.karimi@student.tdsb.on.ca";
+			let codeText = "pouyakarimi86@gmail.com";
 			navigator.clipboard.writeText(codeText);
 }
 		function TxtType(element, toRotate, period) {

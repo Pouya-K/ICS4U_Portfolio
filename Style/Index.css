@@ -113,8 +113,11 @@ a:hover{
 	display: table-cell;
 	background-color: #015761;
 	vertical-align: middle;
+	padding-bottom: 5%;
 }
 .accessImage{
+	margin: 0;
+	padding: 0;
 }
 #homeImage{
 	display: table-cell;
@@ -129,6 +132,7 @@ a:hover{
 	margin-left: 30%;
 	margin-bottom: 0%;
 	margin-top: 0%;
+	padding-top: 0%;
 }
 #pouya{
 	color: white;
@@ -168,9 +172,15 @@ a:hover{
 	margin-bottom: 0%;
 	text-align: center;
 	font-size: 220%;
+	animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
 }
 .abtMePar{
 	color: black;
+	background-color: white;
 	font-family: Roboto-regular, sans-serif;
 	margin-left: 5%;
 	margin-right: 5%;
@@ -179,14 +189,24 @@ a:hover{
 	padding-top: 2%;
 	text-align: center;
 	font-size: 110%;
+	animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
 }
-#aboutMe{
-	background-color: #E0DFDF;
+.aboutMe{
+	background-color: white;
+	color: white;
 	position: absolute;
 	top: 64.5%;
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
+	height: 40vh;
+}
+.abtMeBg{
+	background-color: white;
 }
 #homeImage{
 	background-color: #015761;
@@ -198,4 +218,28 @@ a:hover{
 	color: #015761;
 	font-family: Roboto-bold, sans-serif;
 	cursor: pointer;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
